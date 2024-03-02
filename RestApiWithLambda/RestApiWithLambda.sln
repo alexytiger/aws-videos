@@ -1,10 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customers.Api", "Customers.Api\Customers.Api.csproj", "{0AE8C84B-EB00-4B5F-A7C0-DC77E06E14CE}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customers.Api", "Customers.Api\Customers.Api.csproj", "{0AE8C84B-EB00-4B5F-A7C0-DC77E06E14CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalLambda", "MinimalLambda\MinimalLambda.csproj", "{058A3378-3B7C-458C-AD96-85DE57B12E70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinimalLambda", "MinimalLambda\MinimalLambda.csproj", "{058A3378-3B7C-458C-AD96-85DE57B12E70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleApi", "SimpleApi\SimpleApi.csproj", "{A6D10DA1-3C7B-4F09-9A2B-86F48200C310}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleApi", "SimpleApi\SimpleApi.csproj", "{A6D10DA1-3C7B-4F09-9A2B-86F48200C310}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +27,8 @@ Global
 		{A6D10DA1-3C7B-4F09-9A2B-86F48200C310}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6D10DA1-3C7B-4F09-9A2B-86F48200C310}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6D10DA1-3C7B-4F09-9A2B-86F48200C310}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
