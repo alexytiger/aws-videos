@@ -14,10 +14,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Amazon.Lambda.AspNetCoreServer.Hosting" Version="1.2.0" />
-        <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.7.3.29" />
-        <PackageReference Include="FastEndpoints" Version="4.1.0-beta8" />
-        <PackageReference Include="FastEndpoints.Swagger" Version="4.1.0-beta8" />
+        <PackageReference Include="Amazon.Lambda.AspNetCoreServer.Hosting" Version="1.7.0" />
+        <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.7.301.17" />
+        <PackageReference Include="FastEndpoints" Version="5.23.0" />
+        <PackageReference Include="FastEndpoints.Swagger" Version="5.23.0" />
         <PackageReference Include="ValueOf" Version="2.0.31" />
     </ItemGroup>
 

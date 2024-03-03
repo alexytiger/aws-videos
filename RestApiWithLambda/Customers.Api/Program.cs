@@ -13,7 +13,7 @@ var config = builder.Configuration;
 builder.Services.AddAWSLambdaHosting(LambdaEventSource.HttpApi);
 
 builder.Services.AddFastEndpoints();
-builder.Services.AddSwaggerDoc();
+builder.Services.AddSwaggerDocument();
 
 builder.Services.AddSingleton<IAmazonDynamoDB>(_ => new AmazonDynamoDBClient(RegionEndpoint.EUWest2));
 builder.Services.AddSingleton<ICustomerRepository>(provider =>
@@ -26,7 +26,7 @@ var app = builder.Build();
 app.UseMiddleware<ValidationExceptionMiddleware>();
 app.UseFastEndpoints(x =>
 {
-    x.ErrorResponseBuilder = (failures, _) =>
+    x.Errors.ResponseBuilder = (failures, _, _) =>
     {
         return new ValidationFailureResponse
         {
@@ -36,6 +36,6 @@ app.UseFastEndpoints(x =>
 });
 
 app.UseOpenApi();
-app.UseSwaggerUi3(s => s.ConfigureDefaults());
+app.UseSwaggerUi(s => s.ConfigureDefaults());
 
 app.Run();
