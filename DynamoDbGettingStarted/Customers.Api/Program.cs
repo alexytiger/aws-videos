@@ -1,5 +1,7 @@
 using Amazon;
 using Amazon.DynamoDBv2;
+using Amazon.Runtime.CredentialManagement;
+using Amazon.Runtime;
 using Customers.Api.Repositories;
 using Customers.Api.Services;
 using Customers.Api.Settings;
@@ -25,7 +27,26 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.Configure<DatabaseSettings>(config.GetSection(DatabaseSettings.KeyName));
-builder.Services.AddSingleton<IAmazonDynamoDB>(_ => new AmazonDynamoDBClient(RegionEndpoint.EUWest2));
+
+builder.Services.AddSingleton<IAmazonDynamoDB>(serviceProvider =>
+{
+    var logger = serviceProvider.GetRequiredService<ILogger<Program>>();
+
+    var chain = new CredentialProfileStoreChain();
+    AWSCredentials awsCredentials;
+
+    if (!chain.TryGetAWSCredentials("badtiger-aws-profile", out awsCredentials))
+    {
+        logger.LogError("Failed to get AWS credentials for DynamoDB.");
+
+        // Throwing an exception here ensures that the application does not start with invalid AWS credentials
+        throw new InvalidOperationException("Failed to get AWS credentials for DynamoDB.");
+    }
+
+    // Create the AmazonDynamoDBClient with the obtained credentials
+    return new AmazonDynamoDBClient(awsCredentials, RegionEndpoint.USEast1); // Specify your desired region
+});
+
 builder.Services.AddSingleton<ICustomerRepository, CustomerRepository>();
 builder.Services.AddSingleton<ICustomerService, CustomerService>();
 builder.Services.AddSingleton<IGitHubService, GitHubService>();
@@ -45,7 +66,10 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+    });
 }
 
 app.UseHttpsRedirection();
