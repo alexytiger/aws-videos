@@ -9,6 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinimalLambda", "MinimalLam
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleApi", "SimpleApi\SimpleApi.csproj", "{A6D10DA1-3C7B-4F09-9A2B-86F48200C310}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{0152BB08-63C6-47EB-B07A-40BCDCD315B0}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\Notes to Serverless REST API in.docx = Docs\Notes to Serverless REST API in.docx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +35,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F3489CAF-5001-4152-9DD3-A624B996F4FA}
 	EndGlobalSection
 EndGlobal
