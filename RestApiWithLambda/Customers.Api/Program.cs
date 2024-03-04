@@ -1,12 +1,10 @@
 using Amazon;
 using Amazon.DynamoDBv2;
-using Customers.Api.Contracts.Responses;
 using Customers.Api.Repositories;
 using Customers.Api.Services;
 using Customers.Api.Validation;
 using FastEndpoints;
 using FastEndpoints.Swagger;
-using Microsoft.AspNetCore.Builder;
 
 var builder = WebApplication.CreateBuilder(args);
 
