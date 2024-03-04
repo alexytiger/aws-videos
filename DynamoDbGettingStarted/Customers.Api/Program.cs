@@ -35,7 +35,7 @@ builder.Services.AddSingleton<IAmazonDynamoDB>(serviceProvider =>
     var chain = new CredentialProfileStoreChain();
     AWSCredentials awsCredentials;
 
-    if (!chain.TryGetAWSCredentials("badtiger-aws-profile", out awsCredentials))
+    if (!chain.TryGetAWSCredentials("default", out awsCredentials))
     {
         logger.LogError("Failed to get AWS credentials for DynamoDB.");
 
