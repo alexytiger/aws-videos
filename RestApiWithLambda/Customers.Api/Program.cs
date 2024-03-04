@@ -17,6 +17,7 @@ var config = builder.Configuration;
 builder.Services.AddAWSLambdaHosting(LambdaEventSource.HttpApi);
 
 // FastEndpoints and Swagger
+builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddFastEndpoints();
 builder.Services.AddSwaggerDocument(config =>
 {
